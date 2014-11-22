@@ -67,7 +67,9 @@ Part 1
 4)
     Draw the shortest possibly binary search tree from the following Strings.
     (The elements below are the contents of the tree, not the insertion order.)
+
     apple banana cauliflower eggplant figs kale lettuce mushrooms onion pear quince radish squash yam
+
     Is your tree unique?
 
       String Tree
@@ -79,6 +81,36 @@ Part 1
            /      \             /      \           /    \        /
        apple  cauliflower    figs    lettuce   onion   quince  yam
 
-    
- */
+        No. This tree is not unique because there is no specified insertion order.
 
+5)
+    Draw a maxheap from the Strings in Question 4. Is your maxheap unique?
+
+                                          yam
+                             /                                \
+                      radish                               squash
+                /                  \                    /          \
+           quince                pear               onion        mushrooms
+           /      \             /      \           /    \        /
+      lettuce    kale        figs   eggplant   banana  apple   cauliflower
+    No because, although it is a maxheap, there is no specified insertion order of which has to be on left or right.
+
+6) *Extra Credit*
+    The preorder traversal of a binary search tree is given.
+    What is the postorder traversal of the tree?
+
+    17  13  7  15  14  18  22  21  23
+
+                     17
+                 /         \
+               13           22
+             /   \        /   \
+           7     15     21    23
+                /   \
+              14    18
+
+    Postorder Traversal: 7, 13, 14, 18, 15, 17, 21, 23, 22
+
+Part 2
+
+*/
