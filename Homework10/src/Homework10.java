@@ -93,7 +93,8 @@ Part 1
            quince                pear               onion        mushrooms
            /      \             /      \           /    \        /
       lettuce    kale        figs   eggplant   banana  apple   cauliflower
-    No because, although it is a maxheap, there is no specified insertion order of which has to be on left or right.
+    No because, although it is a maxheap, there is no specified
+    insertion order of which has to be on left or right.
 
 6) *Extra Credit*
     The preorder traversal of a binary search tree is given.
@@ -112,5 +113,9 @@ Part 1
     Postorder Traversal: 7, 13, 14, 18, 15, 17, 21, 23, 22
 
 Part 2
+    Chapter 20, Page 596/Chapter 26, Page 692 (Tree Implementations): 7a, 10a;
+    Extra Credit: 11a and 12 (custom edition)/12a and 13 (2nd edition)
+
+
 
 */
