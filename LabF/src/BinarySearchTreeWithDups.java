@@ -49,7 +49,6 @@ public class BinarySearchTreeWithDups<T extends Comparable<? super T>> extends
 
 		return result;
 	}
-	
 	// ??? IMPLEMENT THIS METHOD
 	public ArrayList<T> getAllEntries(T searchVal) {
 		ArrayList<T> result = new ArrayList<>();
@@ -69,6 +68,8 @@ public class BinarySearchTreeWithDups<T extends Comparable<? super T>> extends
 		
 		return result;
 	}
+	
+		
 
 	public boolean contains(T entry) {
 		return getEntry(entry) != null;
