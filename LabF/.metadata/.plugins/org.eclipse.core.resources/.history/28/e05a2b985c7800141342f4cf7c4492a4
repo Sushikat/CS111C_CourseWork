@@ -1,0 +1,55 @@
+import java.util.Iterator;
+
+public class BSTSortedList<T extends Comparable<? super T>> implements SortedListInterface<T> {
+	
+	private BinarySearchTree<T> tree;
+	
+	public BSTSortedList() {
+		tree = new BinarySearchTree<T>();
+	}
+
+	public boolean add(T newEntry) {
+		return tree.add(newEntry) != null;
+	}
+
+	public boolean remove(T anEntry) {
+		return tree.remove(anEntry) != null;
+	}
+
+	public int getPosition(T anEntry) {
+		return 0;
+	}
+
+	public T getEntry(int givenPosition) {
+		Iterator<T> iterator = tree.getInorderIterator();
+	}
+
+	public boolean contains(T anEntry) {
+		return tree.contains(anEntry);
+	}
+
+	public T remove(int givenPosition) {
+		return null;
+	}
+
+	public void clear() {
+		
+	}
+
+	public int getLength() {
+		return 0;
+	}
+
+	public boolean isEmpty() {
+		return false;
+	}
+
+	public boolean isFull() {
+		return false;
+	}
+
+	public void display() {
+		
+	}
+
+}

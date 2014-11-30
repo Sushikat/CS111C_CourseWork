@@ -1,0 +1,91 @@
+import java.util.Iterator;
+
+public class BSTSortedList<T extends Comparable<? super T>> implements SortedListInterface<T> {
+	
+	private BinarySearchTree<T> tree;
+	
+	public BSTSortedList() {
+		tree = new BinarySearchTree<T>();
+	}
+
+	public boolean add(T newEntry) {
+		return tree.add(newEntry) != null;
+	}
+
+	public boolean remove(T anEntry) {
+		return tree.remove(anEntry) != null;
+	}
+
+	public int getPosition(T anEntry) {
+		Iterator<T> iterator = tree.getInorderIterator();
+		int count = 0;
+		while(((Comparable<? super T>) iterator).compareTo(anEntry) < 0){
+			iterator.next();
+			count++;
+		}
+		if(!contains(anEntry))
+			count*= -1;
+		return count;
+	}
+
+	public T getEntry(int givenPosition) {
+		Iterator<T> iterator = tree.getInorderIterator();
+		int count = 0;
+		if(givenPosition > getLength() || givenPosition == 0)
+			return null;
+		while(givenPosition - 1 != count){
+			iterator.next();
+			count++;
+		}
+		return iterator.next();
+	}
+
+	public boolean contains(T anEntry) {
+		return tree.contains(anEntry);
+	}
+
+	public T remove(int givenPosition) {
+		return tree.remove(getEntry(givenPosition));
+	}
+
+	public void clear() {
+		if(isEmpty())
+			return;
+		Iterator<T> iterator = tree.getInorderIterator();	
+		do{
+			iterator.remove();
+		}while(iterator.hasNext());
+	}
+
+	public int getLength() {
+		Iterator<T> iterator = tree.getPreorderIterator();
+		int count = 0;
+		while(iterator.hasNext()){
+			iterator.next();
+			count++;
+		}
+		return count;
+	}
+
+	public boolean isEmpty() {
+		return tree.isEmpty();
+	}
+
+	/**
+	 * Is never full because you can always add.
+	 */
+	public boolean isFull() {
+		return false;
+	}
+
+	public void display() {
+		Iterator<T> iterator = tree.getPreorderIterator();
+		if(isEmpty())
+			System.out.println("[ ]");
+		System.out.print("[" + iterator.next());
+		while(iterator.hasNext())
+			System.out.print(", " + iterator.next());
+		System.out.print("]\n");
+	}
+
+}
