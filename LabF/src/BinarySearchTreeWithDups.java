@@ -49,12 +49,26 @@ public class BinarySearchTreeWithDups<T extends Comparable<? super T>> extends
 
 		return result;
 	}
+	
 	// ??? IMPLEMENT THIS METHOD
 	public ArrayList<T> getAllEntries(T searchVal) {
-		return null;
-	}
-	
+		ArrayList<T> result = new ArrayList<>();
+
+		BinaryNodeInterface<T> currentNode = getRootNode();
+		while (currentNode != null) {
+			T currentEntry = currentNode.getData();
+
+			if (searchVal.equals(currentEntry)) {
+				result.add(currentEntry);
+				currentNode = currentNode.getRightChild();
+			} else if (searchVal.compareTo(currentEntry) < 0)
+				currentNode = currentNode.getLeftChild();
+			else
+				currentNode = currentNode.getRightChild();
+		}
 		
+		return result;
+	}
 
 	public boolean contains(T entry) {
 		return getEntry(entry) != null;
@@ -73,7 +87,44 @@ public class BinarySearchTreeWithDups<T extends Comparable<? super T>> extends
 
 	// ??? IMPLEMENT YOUR METHOD HERE
 	private T addEntry(T newEntry) {
-		return null;
+		BinaryNodeInterface<T> currentNode = getRootNode();
+		assert currentNode != null;
+		T result = null;
+		boolean found = false;
+
+		while (!found) {
+			T currentEntry = currentNode.getData();
+			int comparison = newEntry.compareTo(currentEntry);
+
+			if (comparison == 0) { // newEntry matches currentEntry;
+									// return and replace currentEntry
+				found = true;
+				result = currentEntry;
+				BinaryNodeInterface<T> temp = currentNode.getRightChild();
+				currentNode.setRightChild(new BinaryNode<T>(newEntry));
+				currentNode.getRightChild().setRightChild(temp);
+				
+				currentNode.setData(newEntry);
+			} else if (comparison < 0) {
+				if (currentNode.hasLeftChild())
+					currentNode = currentNode.getLeftChild();
+				else {
+					found = true;
+					currentNode.setLeftChild(new BinaryNode<T>(newEntry));
+				} // end if
+			} else {
+				assert comparison > 0;
+
+				if (currentNode.hasRightChild())
+					currentNode = currentNode.getRightChild();
+				else {
+					found = true;
+					currentNode.setRightChild(new BinaryNode<T>(newEntry));
+				}
+			}
+		}
+
+		return result;
 	}
 
 	public T remove(T entry) {
