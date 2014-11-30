@@ -39,7 +39,7 @@ public class BSTSortedList<T extends Comparable<? super T>> implements SortedLis
 		if(isEmpty())
 			return -1;
 		Iterator<T> iterator = tree.getInorderIterator();
-		int count = 1;
+		int count = 0;
 		while(iterator.hasNext()){
 			T temp = iterator.next();
 			int compare = temp.compareTo(anEntry);
