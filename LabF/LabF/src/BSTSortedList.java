@@ -1,0 +1,147 @@
+import java.util.Iterator;
+
+public class BSTSortedList<T extends Comparable<? super T>> implements SortedListInterface<T> {
+	
+	// Underlying data structure of the list
+	private BinarySearchTree<T> tree;
+	
+	/**
+	 *  Instantiates the tree
+	 */
+	public BSTSortedList() {
+		tree = new BinarySearchTree<T>();
+	}
+
+	/**
+	 * Adds an entry to the list
+	 * @param newEntry the entry to be added
+	 * @return true if successful, false if already in list
+	 */
+	public boolean add(T newEntry) {
+		return tree.add(newEntry) != null;
+	}
+
+	/**
+	 *  Removes the provided entry from the list
+	 *  @param anEntry the entry to be removed
+	 *  @return true if successful, false otherwise
+	 */
+	public boolean remove(T anEntry) {
+		return tree.remove(anEntry) != null;
+	}
+
+	/**
+	 *  Given an entry, find the position where 1 is the smallest
+	 *  @param anEntry the entry to find the position of
+	 *  @return the position or the negative of where it should be (-n should be at n)
+	 */
+	public int getPosition(T anEntry) {
+		if(isEmpty())
+			return -1;
+		Iterator<T> iterator = tree.getInorderIterator();
+		int count = 1;
+		while(iterator.hasNext()){
+			T temp = iterator.next();
+			int compare = temp.compareTo(anEntry);
+			if(compare == 0)
+				return count;
+			else if(compare > 0)
+				return -count;
+			else if(compare < 0)
+				count++;
+		}
+		return -count;
+	}
+
+	/**
+	 *  Given a position, find the entry.
+	 *  @param givenPosition the position of the entry to be found
+	 *  @return null if givenPosition is not in list, the entry otherwise
+	 */
+	public T getEntry(int givenPosition) {
+		if(givenPosition > getLength() || givenPosition <= 0)
+			return null;
+		Iterator<T> iterator = tree.getInorderIterator();
+		int count = 1;
+		while(count < givenPosition){
+			iterator.next();
+			count++;
+		}
+		return iterator.next();
+	}
+
+	/**
+	 *  Returns true if the entry is in the list
+	 *  @param anEntry the entry to be found
+	 *  @return true if found, false otherwise
+	 */
+	public boolean contains(T anEntry) {
+		return tree.contains(anEntry);
+	}
+
+	/**
+	 *  Removes an entry from the list given its position
+	 *  @param givenPosition the position of the item to be removed
+	 */
+	public T remove(int givenPosition) {
+		return tree.remove(getEntry(givenPosition));
+	}
+
+	/**
+	 * Empties the list
+	 */
+	public void clear() {
+		if(isEmpty())
+			return;
+		Iterator<T> iterator = tree.getInorderIterator();
+		while(iterator.hasNext())
+			tree.remove(iterator.next());
+	}
+	
+	/**
+	 *  Returns the number of items in the list
+	 *  @return the number of items in the list
+	 */
+	public int getLength() {
+		if(isEmpty())
+			return 0;
+		int count = 0;
+		Iterator<T> iterator = tree.getInorderIterator();
+		while(iterator.hasNext()){
+			iterator.next();
+			count++;
+		}
+		return count;
+	}
+	
+	/**
+	 *  Checks if tree contains any values.
+	 *  @return true if empty, false otherwise
+	 */
+	public boolean isEmpty() {
+		return tree.isEmpty();
+	}
+
+	/**
+	 *  Will never be full; can always add more
+	 *  @return false because it will never be true... ever
+	 */
+	public boolean isFull() {
+		return false;
+	}
+
+	/**
+	 *  Displays the list from smallest to largest.
+	 */
+	public void display() {
+		if(isEmpty()){
+			System.out.println("[ ]");
+			return;
+		}
+		Iterator<T> iterator = tree.getInorderIterator();
+		System.out.print("[" + iterator.next());
+		while(iterator.hasNext())
+			System.out.print(", " + iterator.next());
+		System.out.print("]");
+	}
+}

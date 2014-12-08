@@ -1,0 +1,11 @@
+Iris Buschelman
+CS111C
+Lab F
+
+*Oddly enough, the drivers say LabE*
+My files:
+BinarySearchTreeWithDups.java
+BSTSortedList.java
+FILE_KEY.txt
+
+All others came with the assignment.
