@@ -1,0 +1,9 @@
+/*
+  Iris Buschelman
+  CS111C
+  Lab C: Implementation of EntryWayListInterface
+  Due 9/18/2014
+*/
+
+public class EntryWayList<> implements EntryWayListInterface {
+    

@@ -1,0 +1,230 @@
+Iris Buschelman
+CS111C
+Ch. 2 P. 102
+Exercises #1-4, 6-8, 10
+8/9/2014
+
+#1
+
+/**
+  * Assigns the T[] list to the user provided list givenList
+  * @param givenList the T[] that will be the new list
+  */
+
+public AList( T[] givenList){
+       length = givenList.length;
+       list = givenList;
+}
+
+#2
+
+/**
+  * Retrieves the position of an object after having 
+  * performed a simple search for the provided object.
+  * If the object appears multiple times in the list, the last
+  * occurance will be returned.
+  * Returns -1 if the object is not in the list.
+  * @param anObject the object to be found
+  * @return the position of the object or -1 if object is not in list
+  */
+
+public int getPosition(T anObject){
+       int objectPosition = -1;
+       if(!list.isEmpty){
+		for(int i = 1; i <= length; i++){
+       	       		if(list.getEntry(i).equals(anObject)){
+				objectPosition = i;
+			}
+		}
+	}
+	return objectPosition;
+}
+
+#3
+
+/**
+  * Removes objects matching the given from the list as it encounters
+  * them while searching.
+  * Will remove all occurances of a given object from the list
+  * @param anObject the object to be removed
+  * @return true if removal takes place, false otherwise
+  */
+
+public boolean remove(T anObject){
+       boolean success = false;
+       if(!list.isEmpty){
+       		for(int i = 1; i <= length; i++){
+            	       if( list.getEntry(i).equals(anObject)){
+				list.remove(i);
+				i--;	
+				success = true;
+			}
+		}
+	}
+	return success;
+}
+
+#4
+
+/**
+  * Stores the first item in the variable temp, then removes it 
+  * with the .remove() method of this class.
+  * Uses .add() to add temp to the end of the list.
+  * List length should not change.
+  */
+public void moveToEnd(){
+       if((!list.isEmpty() && length >= 2){
+       		T temp = list.getEntry(1);
+       		list.remove(1);
+       		list.add(list.length, temp};
+	}
+}
+
+#6 
+
+/**
+  * Stores the object at objectLocation in T, removes the object with
+  * the .remove() method of this class, adds anObject with the .add()
+  * method of this class at objectLocation.
+  * @param objectLocation the location of the object to be replaced
+  * @param anObject the object to replace the old object
+  * @return the object that was replaced
+  */
+
+public T replace(int objectLocation, T anObject){
+       if(!list.isEmpty()){
+		T temp = getEntry(objectLocation);
+       		list.remove(objectLocation);
+		list.add(objectLocation, anObject);
+       		return temp;
+       } else {
+       	        return null;
+       }
+}
+
+#7a
+
+/**
+  * Sorts the objects in the list in ascending order.
+  * Returns a reference to the smallest object in the list.
+  * @return reference to the smallest object in the list
+  */
+
+public T getMin(){
+       T min = null;
+       boolean changed = true;
+       if(!list.isEmpty() && list.length > 1){ 
+       		min = list.getEntry(i);
+		while(changed){
+			for(int i = 2; i <= list.length; i++){
+			T two = list.getEntry(i);
+			T one = list.getEntry(i-1);
+			changed = false;
+      			    	if(one.compareTo(two) < 0){
+					T temp = one;
+					min = two;
+					list.replace((i-1), two);
+					list.replace( i, temp);	
+					changed = true;
+				}
+			}
+		}
+	}
+	return min;
+}
+
+#7b
+
+/**
+  * Removes the smallest object in the list.
+  */
+
+public remove min(){
+       list.remove(list.getMin());
+}
+
+#8
+
+/**
+  * Performs an item by item check to see if the items in the list
+  * are equal.
+  * @param aList the list to perform equality checks on
+  * @return true if the lists are equal or both empty, false otherwise
+  */
+
+public boolean equals(T aList){
+       boolean areTheyEqual = true;
+       int equalityCounter = 0;
+       if(this.length == aLIst.length){
+       		for(int i = 1; i <= list.length; i++){
+			if(this.getEntry(i) == aList.getEntry(i))
+				equalityCounter++;
+		}
+		if(equalityCounter == list.length)
+			areTheyEqual = true;
+		else
+			areTheyEqual = false;
+       } else {
+       	      areTheyEqual = false;
+       }
+       return areTheyEqual;
+}
+
+# 10
+
+/**
+  * Checks to see if the number of values is less than one half the
+  * number of spaces avaliable and if the number of spaces in the list
+  * is greater than 20.
+  * @return true if both conditions satisfied, false otherwise
+  */
+
+private boolean isTooBig() {
+	if(length < (list.length/2) && list.length > 20)
+		return true;
+	else 
+		return false;
+}
+
+/**
+  * Copies the current array into a new Array that is 3/4 the size.
+  * Gets rid of the old array by setting it to null, reassigns newList
+  * to a new list called list (to maintain variable names), and sets the
+  * newList to null. Updates the length variable to the new number of
+  * items in the list;
+  */
+
+private void reduceArray() {
+	T[] newList = new [list.length*(3/4)];
+	int itemCount;
+	for(int i = 0; i < newList.length; i++){
+	     	 newList[i] = list[i];
+		 if(newList[i] != null)
+		 	  itemCount++;
+	}
+	list = null;
+	T[] list = newList;
+	newList = null;
+	length = itemCount;
+}
+
+/**
+  * Removes the item at the provided ID from the list.
+  * Updates the ID's of all numbers after it.
+  * Checks if the .isToBig method is true. If so, uses reduceArray() 
+  * to shrink the list.
+  * @param removeID the ID of the item to be removed
+  * @return the item that was removed
+  */
+
+public T remove(int removeID){
+       T removed = list[removeID];
+       list[removeID] = null;
+       for(int i = removeID + 1; i < length; i++){
+       	       	 list[i-1] = list[i];
+		 list[i] = null;
+       }
+       if(isToBig())
+		reduceArray();
+       return removed;
+}

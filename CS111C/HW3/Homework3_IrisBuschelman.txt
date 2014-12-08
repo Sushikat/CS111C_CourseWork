@@ -1,0 +1,188 @@
+Iris Buschelman
+CS111C
+Homework 3
+Due: 9/15/2014
+
+PART I
+
+Chapter 3
+1)
+/**
+	Loops through the array, adding each entry to the LList using the add() method
+	@param array the array of objects to be added 
+  */
+public LList(T[] array){
+	for(int i = 0; i < array.length; i++)
+		this.add(array[i]);	
+}
+
+3)
+/**
+	Loops through the items array, adding each item to the end of the array
+	@param items the items to be added to the array
+  */
+public void addAll(T[] items){
+	for(int i = 0; i < items.length; i++)
+		this.add(items[i]);
+}
+
+4)
+/**
+	Loops through the list, searching for anObject. 
+	If anObject is found, it breaks out of the loop and returns the index of anObject.
+	Otherwise it returns null.
+	@param anObject the object to be found
+	@return the object index if found, null otherewise
+  */
+public int getPosition(T anObject){
+	for(int i = 1; i <= length; i++){
+		if(this.getItemAt(i).equals(anObject))
+			return i;
+	}
+	return null;
+}
+
+5)
+/**
+	First compares if the lengths are equal because if one is shorter than the other,
+	they can't be equal.
+	Next, loops through and compares if each of the items in the list are equal.
+	Breaks out and returns false if one pair of objects is unequal.
+	@param aList the LList to be compared with
+	@return true if equal, false otherwise
+  */
+public boolean equals(LList<T> aList){
+	if(length != aList.getLength())
+		return false;
+	for(int i = 1; i <= length; i++){
+		if(!this.getEntryAt(i).equals(aList.getEntryAt(i)))
+			return false;
+	}
+	return true;
+}
+
+6)
+/**
+	Creates an empty LList called lessThan.
+	Uses compareTo to check if the item is less than anObject.
+	If the item is less than anObject, it adds the object to lessThan.
+	Returns the LList lessThan.
+	@param anObject a Comparable object
+	@return LList lessThan: the list of all objects in the LList that are less than anObject
+  */
+public LList<T> getAllLessThan(Comparable<T> anObject){
+	LList<T> lessThan = new LList<T>();	
+	for(int i = 1; i <= length; i++){
+		if(anObject.compareTo(this.getItemAt(i)) < 0)
+			lessThan.add(this.getItemAt(i));
+	}
+	return lessThan;
+}
+
+Chapter 4
+1)
+/**
+	Loops through the LList searching for anObject.
+	If anObject is found, it removes anObject using the already existing remove
+	method given the index of the found object, and returns true to break out of
+	the function.
+	Otherwise returns false.
+	@param anObject the object to be removed
+	@return true if removal successful, false otherwise.
+  */
+public boolean remove(T anObject){
+	for(int i = 1; i <= length; i++){
+		if(this.getItemAt(i).equals(anObject)){
+			this.remove(i);
+			return true;
+		}
+	}
+	return false;
+}
+
+3)
+/**
+	Copies the object at 1 into temp.
+	Uses remove() to get rid of first entry.
+	Uses add() to add temp to the end.
+  */
+public void moveToEnd(){
+	Node temp = this.getEntryAt(1);
+	this.remove(1);
+	this.add(temp);
+	temp = null;
+}
+
+5)
+/**
+	Selects the first entry as the smallest and records its index.
+	Loops through the list.
+	If an item is smaller than the item at minIndex, minIndex
+	becomes the index of the smaller item.
+	Returns the item at minIndex.
+	@return the item at minIndex.
+  */
+public T getMin() {
+	int minIndex = 1;
+	for(int i = 2; i <= length; i++){
+		if(this.getEntryAt(minIndex).compareTo(this.getEntryAt(i)) < 0)
+			minIndex = 1;
+	}
+	return this.getEntryAt(minIndex);
+}
+
+
+PART II
+
+Algorithm 1)
+/**
+	The method is static because it will be implemented in main.
+	Checks to see if there is anything after firstNode. If not, it returns the int
+	value of firstNode.
+	If there are more Nodes connected to firstNode, it adds the int value to the
+	total and increases the number of items by 1.
+	When there are no Nodes left to connect to, it returns total/numberOfItems.
+	@param firstNode the node to start off with
+	@return total/numberOfItems;
+  */
+public static int findAverage(Node<Integer> firstNode){
+	int total = firstNode.getData();
+	int numberOfItems() = 1;
+	if(firstNode.next() != null)
+		Node<Integer> currentNode = firstNode.next();
+	else
+		return total;
+	while(currentNode != null){
+		numberOfItems++;
+		total += currentNode.getData();
+		currentNode = currentNode.next();
+	}
+	return total/numberOfItems;
+}
+
+Algorithm 2)
+/**
+	The method is static because it will be implemented in main.
+	Checks to see if there is anything after firstNode. If not, it returns false 
+	because there is nothing after firstNode to be equal to any given number.
+	If there are more Nodes connected to firstNode, it checks if the value of the
+	node after current minus the current is equal to the given increasingAmount.
+	If it isn't equal, it returns false.
+	When there are no Nodes left to connect to and it hasn't already broken out, it
+	returns true.
+	@param firstNode the node to start off with
+	@param increasingAmount the amount the nodes should be increasing by
+	@return true: all nodes sequence are increasing by increasingAmount, false otherwise
+  */
+public static boolean hasLinearIncrease(Node<Integer> firstNode, int increasingAmount){
+	if(firstNode.next == 0)
+		return false;
+	Node<Integer> one = firstNode;
+	while(one.next() != null){
+		Node<Integer> two = one.next();
+		if((two.getData() - one.getData()) != increasingAmount)
+			return false;
+		one = two;
+	}
+	return true;
+}

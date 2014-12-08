@@ -1,0 +1,26 @@
+/**
+   Tester for the ItemPair class
+*/
+public class ItemPairTester{
+    /**
+       Used to test the class for fuctionality
+    */
+    public static void main(String[] args) {
+	String a = "hi";
+	String b = "hi";
+	int one = 1;
+	int two = 1;
+	int three = 2;
+	ItemPair<String> testOne = new ItemPair<>(a, b);
+	System.out.println("Test One (String): " + testOne.sameItems());
+	ItemPair<Integer> testTwo = new ItemPair<>(one, two);
+	System.out.println("Test Two (Integer): " + testTwo.sameItems());
+	ItemPair<Integer> testThree = new ItemPair<>(one,two);
+	System.out.println("Test Three (Same as Test Two): " + testThree);
+	ItemPair<Integer> testFour = new ItemPair<>(one, three);
+	System.out.println("Test Four (Integer): " + testFour);
+	System.out.println("Test One equals Test Two? " + testOne.equals(testTwo));
+	System.out.println("Test Two equals Test Three? " + testTwo.equals(testThree));
+	System.out.println("Test Three equals Test Four? " + testThree.equals(testFour));
+    }
+}

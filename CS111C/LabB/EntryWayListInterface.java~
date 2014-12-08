@@ -1,0 +1,22 @@
+/**
+ * A generic interface to use when working with Lists
+ * Name: Iris Buschelman
+ * Course: CS111C
+ * Due Date: 9/1/2014
+ * Assignment: LabB -- Interfaces
+ */
+
+interface EntryWayListInterface<T>{
+    /**
+     * Task: Put a new entry at the front of the list
+     *       Replaces the first entry with the new item
+     */
+    boolean insertHead(T newEntry);
+    boolean insertTail(T newEntry);
+    T deleteHead(); // (returns the object that has been deleted)
+    T deleteTail(); // (returns the object that has been deleted)
+    void display();
+    int contains(T anEntry); //(returns the position of the entry that was found)
+    boolean isEmpty();
+    boolean isFull();
+}
