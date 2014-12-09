@@ -5,7 +5,6 @@
     12/8/2014
 
 Part I: B-Trees
-
 Draw the tree that results from adding the values 12, 24, 32, 42, 48, 56, 67, 83, 89, and 95 to an empty 2-3 tree.
 Draw the tree that results from adding these same values to an empty 2-4 tree.
 For #1 and #2, show what the tree looks like after each element is added. You do not need to show the splitting steps,
@@ -14,7 +13,6 @@ but you must show what the tree looks like after each insertion.
 See Part1AllAnswers.pdf
 
 Part II: Graphs
-
 For the three graphs below, describe each of the following:
 directed/undirected
 number of nodes
@@ -60,20 +58,28 @@ depth-first, starting at C
 C, B, D, J, G, F, E, H, A
 
 Part III: Chapter 24, Page 727 / Chapter 30 Page 816: 8, 11; Extra Credit: 16, EC
-
 #8 (the topological ordering)
 See Part3.pdf
 #11 (the map): for part b, provide two different sets of edges that could be removed to make the graph a tree.
+a. 1 edge
+b. Barnstable/Hyannis, Orleans/Barnstable
 Extra Credit: #16: I recommend using the interactive map on the Jet Blue website: http://www.jetblue.com/WhereWeJet/.
 If you use this, use Buffalo, NY instead of Albany, NY.
 If you use a different airline, you must include the map or the URL in your answer.
+a. Boston -> Baltimore are non-stop flights (edges)
+b. Providence -> San Diego doesn't exist
+c. Albany -> Phoenix, Dallas -> Detroit, Charlotte -> Chicago, Portland -> Portland all have 2 edges between them.
 Extra Credit EC: Describe real-world situations that could be represented by a graph with the properties below.
 For each graph, describe what the nodes are and what an edge represents.
-directed and disconnected
-undirected and disconnected
-complete
-Part IV: Chapter 25, Page 750 / Chapter 31, Page 839: 1-4, 6-7, 17
+directed and disconnected: Phone Contact list -> I know everybody's number, but they don't know mine.
+Phone numbers are nodes. The people who have the phone numbers are edges.
+(Example: I have Mike's number, but he doesn't have mine. Shelly has a phone, but no-one has her number.)
+undirected and disconnected: Facebook. Profiles are nodes and "friendships" are edges.
+It is disconnected because you can have a Facebook profile with no friends.
+complete: The Internet. Nodes are websites and edges are urls/links.
 
+Part IV: Chapter 25, Page 750 / Chapter 31, Page 839: 1-4, 6-7, 17
+#1
 
 For the questions that ask you to draw a tree, you can include your answer in whatever way is easiest.
 You can draw the answer on paper and then scan the answer or take a picture of it with a
