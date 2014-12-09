@@ -1,8 +1,7 @@
-/*
-    Iris Buschelman
-    CS111C
-    Homework 11 Graphs
-    12/8/2014
+﻿Iris Buschelman
+CS111C
+Homework 11 Graphs
+12/8/2014
 
 Part I: B-Trees
 Draw the tree that results from adding the values 12, 24, 32, 42, 48, 56, 67, 83, 89, and 95 to an empty 2-3 tree.
@@ -59,7 +58,7 @@ C, B, D, J, G, F, E, H, A
 
 Part III: Chapter 24, Page 727 / Chapter 30 Page 816: 8, 11; Extra Credit: 16, EC
 #8 (the topological ordering)
-See Part3.pdf
+See Part3AllAnswers.pdf
 #11 (the map): for part b, provide two different sets of edges that could be removed to make the graph a tree.
 a. 1 edge
 b. Barnstable/Hyannis, Orleans/Barnstable
@@ -79,7 +78,16 @@ It is disconnected because you can have a Facebook profile with no friends.
 complete: The Internet. Nodes are websites and edges are urls/links.
 
 Part IV: Chapter 25, Page 750 / Chapter 31, Page 839: 1-4, 6-7, 17
-#1
+#1-2 See Part4#1-2.pdf
+#3-4 See Part4#3-4.pdf
+#6 Adjacency matrix provides better efficiency because you don't have to look through a list to find an edge.
+#7 Adjacency list provides better efficiency because you don't have to check through an entire row to find the edges.
+#17
+a. They can be good for finding which route not to take if you're are finding routes from point A to point B?
+Like on 511.org with finding a way to get from A -> B on public transit. I had to do a project like that in 111B, and
+we would use loops to figure out whether or not to abandon a route.
+The Internet tells me many ways to get rid of them and not much good about them.
+b. Yes. They can both support loops.
 
 For the questions that ask you to draw a tree, you can include your answer in whatever way is easiest.
 You can draw the answer on paper and then scan the answer or take a picture of it with a
@@ -89,5 +97,3 @@ This is the program I use to create the trees for the online notes. I find it ve
 However you create the pictures of your trees, make sure that the pictures are clearly labeled and organized.
 This means either naming each file with the chapter/exercise number or putting each picture into one main doc/pdf file.
 It's your responsibility to make sure it's easy for me/the graders to find your answers!
-
- */

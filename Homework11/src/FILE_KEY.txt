@@ -1,0 +1,11 @@
+Iris Buschelman
+CS111C
+Homework 11
+
+FILE KEY
+Part1AllAnswers.pdf --> All graphs for Part 1
+Part3AllAnswers.pdf --> Graphs for Part 3, #8
+Part4#1-2.pdf       --> Adjacency Matrices for Part 4 #1-2
+Part4#3-4.pdf       --> Adjacency Lists for Part 4 #3-4
+Homework11.txt      --> Contains all questions not addressed by other files
+                        Also contains references to files for each question
