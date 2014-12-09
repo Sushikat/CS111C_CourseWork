@@ -83,9 +83,7 @@ Part IV: Chapter 25, Page 750 / Chapter 31, Page 839: 1-4, 6-7, 17
 #6 Adjacency matrix provides better efficiency because you don't have to look through a list to find an edge.
 #7 Adjacency list provides better efficiency because you don't have to check through an entire row to find the edges.
 #17
-a. They can be good for finding which route not to take if you're are finding routes from point A to point B?
-Like on 511.org with finding a way to get from A -> B on public transit. I had to do a project like that in 111B, and
-we would use loops to figure out whether or not to abandon a route.
+a. They can be good for finding which route not to take if you're are finding routes from point A to point B? Like on 511.org with finding a way to get from A -> B on public transit. I had to do a project like that in 111B, and we would use loops to figure out whether or not to abandon a route. They could also be used to get around Garbage-Collection because if you want to hold on to an object name but leave it pointing at nothing, you can have it point at itself. I'm not sure if this is the same concept, but it sounds maybe accurate?
 The Internet tells me many ways to get rid of them and not much good about them.
 b. Yes. They can both support loops.
 
