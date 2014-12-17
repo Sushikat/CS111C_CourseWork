@@ -18,7 +18,7 @@ import java.awt.*;
 
 public class Triangles extends JApplet{
 	final int INITIAL_SIDE = 300;
-	final double MIN_SIZE = 1;
+	final double MIN_SIZE = 5.0;
 	final double SHRINK_BY = 2.0;
 
 	/*
@@ -39,8 +39,8 @@ public class Triangles extends JApplet{
 	 */
 	
 	public void paint(Graphics g){
-		this.setSize(new Dimension(650,525));
-		drawTriangles(g, 325, 350, INITIAL_SIDE);
+		this.setSize(new Dimension(600,520));
+		drawTriangles(g, 300, 345, INITIAL_SIDE);
 	}
 
 	/**
